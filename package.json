@@ -1,0 +1,40 @@
+{
+  "name": "n8n-nodes-http-transform",
+  "version": "1.0.0",
+  "description": "n8n custom node: HTTP request + data transformation in a single node",
+  "keywords": ["n8n-community-node-package"],
+  "license": "MIT",
+  "homepage": "https://github.com/bck-stack/n8n-custom-node",
+  "author": {
+    "name": "bck-stack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bck-stack/n8n-custom-node.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "lint": "eslint nodes --ext .ts",
+    "prepublishOnly": "npm run build"
+  },
+  "files": ["dist"],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/HttpTransformApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/HttpTransform/HttpTransform.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.5",
+    "n8n-workflow": "^1.0.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
